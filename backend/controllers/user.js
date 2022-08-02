@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // on récupère notre model de "user"
-const User = require("../models/user");
+const User = require("../models/User");
 
 // on déclare une méthode ( middleware ) de signup pour enregistrer un nouvel "user"
 exports.signup = (req, res, next) => {

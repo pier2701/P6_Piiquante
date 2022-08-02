@@ -3,7 +3,7 @@
 const Sauce = require("../models/sauce");
 
 const { json } = require("express");
-// on déclare la méthode "fse"
+// on déclare la méthode "fs"
 const fs = require("fs");
 
 // on exporte les méthodes créées au sein de chaque "router" dans une nouvelle fonction pour chaque méthode "router"
@@ -11,17 +11,17 @@ const fs = require("fs");
 // on récupère la logique pour "créer" un article
 exports.createSauce = (req, res, next) => {
   // on va "parsé" l'objet json de "req"
-  const thingObject = JSON.parse(req.body.sauce);
+  const sauceObject = JSON.parse(req.body.sauce);
 
   // on va supprimer 2 éléments dans cet objet :
   // _id ( car l'id sera généré automatiquement par mongoDB ) et userId ( il ne faut pas faire confiance à l'user )
   // on utlisera l'id du Token de l'user pour renforcer la sécurité du site
-  delete thingObject._id;
-  delete thingObject._userId;
+  delete sauceObject._id;
+  delete sauceObject._userId;
 
-  // on va créer un nouvel objet "Thing"
+  // on va créer un nouvel objet "Sauce"
   const sauce = new Sauce({
-    ...thingObject, // model d'objet sans les 2 éléments
+    ...sauceObject, // model d'objet sans les 2 éléments
     userId: req.auth.userId, // on extrait notre id du token de la méthode "auth"
     imageUrl: `${req.protocol}://${req.get("host")}/images/${
       req.file.filename
@@ -40,16 +40,16 @@ exports.createSauce = (req, res, next) => {
 // on récupère la logique pour "modifier" un article
 exports.modifySauce = (req, res, next) => {
   // on passe par la condition ternaire pour voir s'il y a un champ "file" dans notre "req"
-  const thingObject = req.file
+  const sauceObject = req.file
     ? {
-        ...JSON.parse(req.body.thing), // si oui, on parse pour récupèrer l'objet
+        ...JSON.parse(req.body.sauce), // si oui, on parse pour récupèrer l'objet
         imageUrl: `${req.protocol}://${req.get("host")}/images/${
           req.file.filename
         }`, // on reconstitue l'URL en faisant appelle aux "propriétés" de l'objet "req"
       }
     : { ...req.body }; // sinon on récupère l'objet directemnt dans le corps de la requête
   // on supprime le userId pour eviter qu'un user créé un objet pour la réattribuer à quelqu'un d'autre
-  delete thingObject._userId;
+  delete sauceObject._userId;
 
   // on compare l'objet user avec notre BD pour confirmer que l'objet lui appartient bien
   Sauce.findOne({ _id: req.params.id })
@@ -62,7 +62,7 @@ exports.modifySauce = (req, res, next) => {
         // le 1er = _id de comparaison à modifier, le 2ème = la nouvelle version de l'objet avec le même _id
         Sauce.updateOne(
           { _id: req.params.id },
-          { ...thingObject, _id: req.params.id }
+          { ...sauceObject, _id: req.params.id }
         )
           .then(() => res.status(200).json({ message: "Sauce modifiée !!!" }))
           // error 401 pour dire que l'objet n'est pas trouvé

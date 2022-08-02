@@ -8,6 +8,9 @@ const { parentPort } = require("worker_threads");
 // on importe le module créé "app" qui est "express" depuis le dossier backend (./app)
 const app = require("./app");
 
+const cors = require("cors");
+app.use(cors());
+
 // création d'une fonction "normalizePort" qui renverra un PORT valide (qu'il soit fourni sous forme de string ou number)
 const normalizePort = (valid) => {
   // transforme le port un nombre entier
@@ -22,7 +25,7 @@ const normalizePort = (valid) => {
 };
 
 // on déclare le port à utiliser
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(process.env.PORT || "3000");
 // on indique à "app" sur quel PORT elle doit tourner
 app.set("port", port);
 

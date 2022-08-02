@@ -6,7 +6,7 @@ const router = express.Router();
 
 // on déclare la function "controllers" pour les différentes routes du "user"
 const userCtrl = require("../controllers/user");
-const { route } = require("./stuff");
+const { route } = require("./sauce");
 
 // on récupére les 2 méthodes/functions/middlewares du "controlllers/user"
 // le frontend "post" les données, donc on utilise la méthode POST

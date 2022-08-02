@@ -1,6 +1,6 @@
 // on importe la méthode du npm
 const jwt = require("jsonwebtoken");
-const { request } = require("../app");
+//const { request } = require("../app");
 
 // on exporte la méthode du jwt
 module.exports = (req, res, next) => {
@@ -10,16 +10,16 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1]; // [1] correspond à la 2ème partie qu'on voudra récupèrer
 
     // on décode le token récupéré avec la méthode "verify" de jwt
-    const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET"); // token récupéré + la clé scrète
+    const payLoad = jwt.verify(token, "RANDOM_TOKEN_SECRET"); // token récupéré + la clé scrète
 
     // on récupère notre token décodé dans une constante
-    const userId = decodedToken.userId;
+    const userId = payLoad.userId;
 
     // on rajoute cette valeur à l'objet "req" qui accompagnera toutes les routes
     req.auth = {
       userId: userId,
     };
-    //next();
+    next();
   } catch (error) {
     res.status(401).json({ error });
   }
