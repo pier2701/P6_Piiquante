@@ -4,6 +4,9 @@ const bcrypt = require("bcrypt");
 // on récupère la package "jsonwebtoken" à travers la constante
 const jwt = require("jsonwebtoken");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 // on récupère notre model de "user"
 const User = require("../models/User");
 
@@ -55,8 +58,9 @@ exports.login = (req, res, next) => {
                 // on appelle la function sign() avec 3 arguments
                 token: jwt.sign(
                   // l'intégration du userId dans le token permettra à l'user de créer et modifier ses propres articles et NON les autres
-                  { userId: user._id }, // "payload" pour faire correspondre notre userId à la requête
-                  "RANDOM_TOKEN_SECRET", // ex. de string pour sécuriser l'encodage
+                  { userId: user._id },
+                  process.env.RANDOM_TOKEN_SECRET, // "payload" pour faire correspondre notre userId à la requête
+                  //"RANDOM_TOKEN_SECRET", ex. de string pour sécuriser l'encodage
                   { expiresIn: "24h" } // chaque token durera 24H
                 ),
               });

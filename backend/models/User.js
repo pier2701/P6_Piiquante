@@ -1,6 +1,9 @@
 // on importe mongoose
 const mongoose = require("mongoose");
 
+// on importe le module qui interprètera les erreurs en http, ainsi que les codes appropriés
+const MongooseErrors = require("mongoose-errors");
+
 // on rajoute un "plug-in" qui est "unique-validator"
 const uniqueValidator = require("mongoose-unique-validator");
 
@@ -9,6 +12,8 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
+
+userSchema.plugin(MongooseErrors);
 
 // on applique le plug-in au "schema"
 userSchema.plugin(uniqueValidator);

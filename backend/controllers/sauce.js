@@ -12,7 +12,7 @@ const fs = require("fs");
 exports.createSauce = (req, res, next) => {
   // on va "parsé" l'objet json de "req"
   const sauceObject = JSON.parse(req.body.sauce);
-
+  console.log(sauceObject);
   // on va supprimer 2 éléments dans cet objet :
   // _id ( car l'id sera généré automatiquement par mongoDB ) et userId ( il ne faut pas faire confiance à l'user )
   // on utlisera l'id du Token de l'user pour renforcer la sécurité du site
@@ -27,7 +27,7 @@ exports.createSauce = (req, res, next) => {
       req.file.filename
     }`, // on reconstitue l'URL en faisant appelle aux "propriétés" de l'objet "req"
   });
-
+  console.log(sauceObject);
   // on enregistre l'objet dans la base avec la méthode "save()"
   sauce
     .save()

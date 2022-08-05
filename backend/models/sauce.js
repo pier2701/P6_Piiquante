@@ -1,6 +1,9 @@
 // importer le module mongoose qui va créer un model "schema" pour structurer notre doc/schema
 const mongoose = require("mongoose");
 
+// on importe le module qui interprètera les erreurs en http, ainsi que les codes appropriés
+const MongooseErrors = require("mongoose-errors");
+
 // contruction du "schema" pour notre model réutilisable
 const ModelsSauce = mongoose.Schema({
   userId: { type: String, required: true },
@@ -15,6 +18,8 @@ const ModelsSauce = mongoose.Schema({
   usersLiked: { type: [String], default: [] },
   usersDisliked: { type: [String], default: [] },
 });
+
+ModelsSauce.plugin(MongooseErrors);
 
 // on exporte le model pour l'utliser, 1er argument 'Sauce' (nom du model), 2ème argument ModelsSauce (model/schema)
 module.exports = mongoose.model("Sauce", ModelsSauce);

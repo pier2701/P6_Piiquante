@@ -2,19 +2,23 @@
 const jwt = require("jsonwebtoken");
 //const { request } = require("../app");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 // on exporte la méthode du jwt
 module.exports = (req, res, next) => {
   // on gère la réponse ( promise ) avec un try/catch
   try {
     // on récupère que le token et on isole l'id avec la méthode "split" qui divisera notre [] au niveau de ' ' ( l'espace )
     const token = req.headers.authorization.split(" ")[1]; // [1] correspond à la 2ème partie qu'on voudra récupèrer
-
+    console.log(token);
     // on décode le token récupéré avec la méthode "verify" de jwt
-    const payLoad = jwt.verify(token, "RANDOM_TOKEN_SECRET"); // token récupéré + la clé scrète
+    const payLoad = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET); // "RANDOM_TOKEN_SECRET"token récupéré + la clé secrète
+    console.log(payLoad);
 
     // on récupère notre token décodé dans une constante
     const userId = payLoad.userId;
-
+    console.log(userId);
     // on rajoute cette valeur à l'objet "req" qui accompagnera toutes les routes
     req.auth = {
       userId: userId,
