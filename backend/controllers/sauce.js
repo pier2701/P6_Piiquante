@@ -55,8 +55,8 @@ exports.modifySauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
       if (sauce.userId != req.auth.userId) {
-        // si Id est != de l'id du token => erreur 401 "authentificateur"
-        res.status(401).json({ message: "Non-autorisé" });
+        // si Id est != de l'id du token => erreur 403 "unauthorized request"
+        res.status(403).json({ message: "unauthorized request" });
       } else {
         // méthode updateOne pour modifier avec 2 arguments =>
         // le 1er = _id de comparaison à modifier, le 2ème = la nouvelle version de l'objet avec le même _id
@@ -79,8 +79,8 @@ exports.deleteSauce = (req, res, next) => {
     .then((sauce) => {
       if (sauce.userId != req.auth.userId) {
         // on compare le 'userId' avec celui du token
-        // si la comparaison n'es pas bonne => error 401
-        res.status(401).json({ message: "Non-autorisé" });
+        // si la comparaison n'es pas bonne => error 403
+        res.status(403).json({ message: "unauthorized request" });
       } else {
         const filename = sauce.imageUrl.split("/images/")[1]; // on récupère le nom du fichier
         fs.unlink(`images/${filename}`, () => {
