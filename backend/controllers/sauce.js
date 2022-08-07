@@ -174,9 +174,7 @@ exports.likeDislike = (req, res, next) => {
         // on push le userId dans le [ usersDisliked ] et on incrémente "dislikes" de 1
         { $push: { usersDisliked: userId }, $inc: { dislikes: +1 } }
       )
-        .then(() => {
-          res.status(200).json({ message: "dislike modifié" });
-        })
+        .then(() => res.status(200).json({ message: "dislike modifié" }))
         .catch((error) => res.status(400).json({ error }));
       break;
 
