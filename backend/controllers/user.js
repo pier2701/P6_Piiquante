@@ -59,8 +59,7 @@ exports.login = (req, res, next) => {
                 token: jwt.sign(
                   // l'intégration du userId dans le token permettra à l'user de créer et modifier ses propres articles et NON les autres
                   { userId: user._id },
-                  process.env.RANDOM_TOKEN_SECRET, // "payload" pour faire correspondre notre userId à la requête
-                  //"RANDOM_TOKEN_SECRET", ex. de string pour sécuriser l'encodage
+                  process.env.RANDOM_TOKEN_SALT, // "payload" pour faire correspondre notre userId à la requête
                   { expiresIn: "24h" } // chaque token durera 24H
                 ),
               });

@@ -28,8 +28,11 @@ router.delete("/:id", auth, sauceCtrl.deleteSauce);
 // route de type GET pour 1 seul objet/article avec requête "params" de l'id
 router.get("/:id", auth, sauceCtrl.getOneSauce);
 
-// api/stuff sera la route vers laquelle nous intercepterons les requêtes de type GET de touts les objets/articles
+// la route vers laquelle nous intercepterons les requêtes de type GET de toutes les sauces
 router.get("/", auth, sauceCtrl.getAllSauces);
+
+// la route vers laquelle nous intercepterons les requêtes de type POST des "like/dislike" des users
+router.post("/:id/like", auth, sauceCtrl.likeDislike);
 
 // on réexporte la méthode "router" déclarer au début
 module.exports = router;
