@@ -39,7 +39,21 @@ exports.createSauce = (req, res, next) => {
 
 // on récupère la logique pour "modifier" un article
 exports.modifySauce = (req, res, next) => {
-  // on passe par la condition ternaire pour voir s'il y a un champ "file" dans notre "req"
+  // on met en place la logique pour "récupèrer" l'image et la supprimer de la base de données
+  if (req.file) {
+    Sauce.findOne({ _id: req.params.id }).then((sauce) => {
+      // on récupère le nom de l'image
+      const imgFile = sauce.imageUrl.split("/images/")[1];
+      console.log("l'imageUrl = ", imgFile);
+
+      // on supprime l'image du dossier "images"
+      fs.unlink(`images/${imgFile}`, (error) => {
+        if (error) throw error;
+      });
+    });
+  }
+
+  // on passe par la condition ternaire pour voir s'il y a un champ "file" ( image ) dans notre "req"
   const sauceObject = req.file
     ? {
         ...JSON.parse(req.body.sauce), // si oui, on parse pour récupèrer l'objet

@@ -11,10 +11,10 @@ module.exports = (req, res, next) => {
   try {
     // on récupère que le token et on isole l'id avec la méthode "split" qui divisera notre [] au niveau de ' ' ( l'espace )
     const token = req.headers.authorization.split(" ")[1]; // [1] correspond à la 2ème partie qu'on voudra récupèrer
-
+    console.log(req.headers.authorization);
     // on décode le token récupéré avec la méthode "verify" de jwt
     const payLoad = jwt.verify(token, process.env.RANDOM_TOKEN_SALT); // "RANDOM_TOKEN_SALT"token récupéré + la clé secrète
-
+    console.log(payLoad);
     // on récupère notre token décodé dans une constante
     const userId = payLoad.userId;
 
