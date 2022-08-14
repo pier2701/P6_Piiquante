@@ -5,7 +5,7 @@ const http = require("http");
 const { type } = require("os");
 const { parentPort } = require("worker_threads");
 
-// on importe le module créé "app" qui est "express" depuis le dossier backend (./app)
+// on importe le module créé "app" qui est notre application depuis le dossier backend (./app)
 const app = require("./app");
 
 const cors = require("cors");

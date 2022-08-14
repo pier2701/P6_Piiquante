@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1]; // [1] correspond à la 2ème partie qu'on voudra récupèrer
     console.log(req.headers.authorization);
     // on décode le token récupéré avec la méthode "verify" de jwt
-    const payLoad = jwt.verify(token, process.env.RANDOM_TOKEN_SALT); // "RANDOM_TOKEN_SALT"token récupéré + la clé secrète
+    const payLoad = jwt.verify(token, process.env.RANDOM_TOKEN_SALT); // token récupéré + "RANDOM_TOKEN_SALT"
     console.log(payLoad);
     // on récupère notre token décodé dans une constante
     const userId = payLoad.userId;
