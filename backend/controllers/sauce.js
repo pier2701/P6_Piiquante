@@ -68,6 +68,8 @@ exports.modifySauce = (req, res, next) => {
   // on compare l'objet user avec notre BD pour confirmer que l'objet lui appartient bien
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
+      console.log(" => userId de la sauce = " + sauce.userId);
+      console.log("   => userId de la req = " + req.auth.userId);
       if (sauce.userId != req.auth.userId) {
         // si Id est != de l'id du token => erreur 403 "unauthorized request"
         res.status(403).json({ message: "unauthorized request" });
@@ -91,6 +93,8 @@ exports.deleteSauce = (req, res, next) => {
   // on compare le "create-user" et le "delete-user" qui fait la requête
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
+      console.log(" => userId de la sauce = " + sauce.userId);
+      console.log("   => userId de la req = " + req.auth.userId);
       if (sauce.userId != req.auth.userId) {
         // on compare le 'userId' avec celui du token
         // si la comparaison n'es pas bonne => error 403

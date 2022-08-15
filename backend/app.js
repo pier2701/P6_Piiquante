@@ -60,6 +60,8 @@ mongoose
 app.use(cors());
 
 app.use(helmet());
+// on désactive le header "X-Powered-By" qui pourrait constituer une fuite d'informations
+app.use(helmet.hidePoweredBy());
 
 // configuration "Cross-Origin-Resource-Policy: same-site"
 app.use(helmet.crossOriginResourcePolicy({ policy: "same-site" }));
@@ -71,8 +73,6 @@ app.use(
     replaceWith: "_",
   })
 );
-
-/** utilisation de Middlewares et de la fonction next() pour passer au middleware suivant **/
 
 // middleware qui intercepte les requêtes utilisateur POUR LES RENDRE EXPLOITABLE sous format "json"
 app.use(express.json());

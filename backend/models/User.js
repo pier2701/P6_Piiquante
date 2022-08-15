@@ -15,6 +15,12 @@ const userSchema = mongoose.Schema({
 
 userSchema.plugin(MongooseErrors);
 
+userModel = mongoose.model("userModel", userSchema);
+userModel.create().catch((error) => {
+  console.log(error.statusCode);
+  done();
+});
+
 // on applique le plug-in au "schema"
 userSchema.plugin(uniqueValidator);
 

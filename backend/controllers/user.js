@@ -64,7 +64,7 @@ exports.login = (req, res, next) => {
               // mot de passe correct, donc on renvoie un "objet" en réponse avec l'id du "user" et le TOKEN
               res.status(200).json({
                 userId: user._id,
-                // on appelle la function sign() avec 3 arguments
+                // on appelle la function sign() de jwt avec 3 arguments
                 token: jwt.sign(
                   // l'intégration du userId dans le token permettra à l'user de créer et modifier ses propres articles et NON les autres
                   { userId: user._id },
