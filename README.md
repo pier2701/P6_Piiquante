@@ -27,7 +27,7 @@ Après l'installation des modules, propres au fonctionnement de l'application, r
 nodemon server
 Cette action lancera le serveur.
 
-Se rendre, du terminal dans le dossier "frontend", puis taper :
+Se rendre, à partir du terminal, dans le dossier "frontend", puis taper :
 npm run start
 Cette action lancera l'application.
 
