@@ -1,8 +1,36 @@
 # Pour démarrer l'application
 
-À partir du terminal, il faut se positionner dans le dossier "frontend" puis taper la commande "npm run start" pour lancer l'application.
+À partir du terminal, il faudra taper la commande pour popuvoir installer toutes les dépendances liées à l'application :
 
-Ensuite, il faudra de positionner dans le dossier "backend", installer le module "nodemon" en tapant "npm install -g nodemon" puis taper la commande "nodemon server" pour lancer le serveur.
+npm install -g
+npm install -g @angular/cli
+
+Puis, du terminal, se rendre dans le dossier backend, pour installer les autres dépendances :
+npm install --save bcrypt
+npm install --save cors
+npm install --save crypto-js
+npm install --save dotenv
+npm install --save express
+npm install --save express-mongo-sanitize
+npm install --save express-rate-limit
+npm install --save helmet
+npm install --save jsonwebtoken
+npm install --save mongoose
+npm install --save mongoose-errors
+npm install --save mongoose-unique-validator
+npm install --save morgan
+npm install --save multer
+npm install --save nodemon
+npm install --save password-validator
+
+Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dosiier "backend" puis taper :
+nodemon server
+Cette action lancera le serveur.
+
+Se rendre, du terminal dans le dossier "frontend", puis taper :
+npm run start
+Cette action lancera l'application.
+
 Une fois, ces commandes effectuées, se rendre à l'adresse http://localhost:4200/ pour naviguer dans l'application.
 
 Pour le "signup", un contrôle de l'email vérifiera son format. Le mot de passe devra faire entre 6 et 40 caractères maximum, contenir au moins 1 majuscule, 1 minuscule, 2 chiffres entiers, pas d'espace et être différent de "Passwrd12" et "Password123".
