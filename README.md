@@ -6,15 +6,15 @@ Ensuite, ouvrir le projet à partir de l'éditeur de code ( ex: vscode ).
 
 À partir du terminal intégré, il faudra se rendre dans le dossier "backend" et taper la commande suivante pour pouvoir installer toutes les dépendances liées à l'application :
 
-npm install -g
+npm install
+npm install -g nodemon
 
 Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dossier "backend" puis taper :
 nodemon server
 Cette action lancera le serveur.
 
 Se rendre, à partir du terminal, dans le dossier "frontend", puis taper :
-npm install --save @angular/cli
-Cette manipulation installera le framework "angular" qui a permis de coder la partie "frontend"
+npm install
 
 Depuis le terminal, toujours dans le dossier "frontend", taper la commande suivante :
 npm run start
