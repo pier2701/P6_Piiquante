@@ -1,29 +1,10 @@
 # Pour démarrer l'application
 
-À partir du terminal, il faudra taper la commande pour popuvoir installer toutes les dépendances liées à l'application :
+À partir du terminal, il faudra taper la commande pour pouvoir installer toutes les dépendances liées à l'application :
 
 npm install -g
-npm install -g @angular/cli
 
-Puis, du terminal, se rendre dans le dossier backend, pour installer les autres dépendances :
-npm install --save bcrypt
-npm install --save cors
-npm install --save crypto-js
-npm install --save dotenv
-npm install --save express
-npm install --save express-mongo-sanitize
-npm install --save express-rate-limit
-npm install --save helmet
-npm install --save jsonwebtoken
-npm install --save mongoose
-npm install --save mongoose-errors
-npm install --save mongoose-unique-validator
-npm install --save morgan
-npm install --save multer
-npm install --save nodemon
-npm install --save password-validator
-
-Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dosiier "backend" puis taper :
+Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dossier "backend" puis taper :
 nodemon server
 Cette action lancera le serveur.
 
