@@ -1,8 +1,11 @@
 # Pour démarrer l'application
 
 À partir du terminal, il faut se positionner dans le dossier "frontend" puis taper la commande "npm run start" pour lancer l'application.
-Ensuite, il faudra de positionner dans le dossier "backend" puis taper la commande "nodemon server" pour lancer le serveur.
+
+Ensuite, il faudra de positionner dans le dossier "backend", installer le module "nodemon" en tapant "npm install -g nodemon" puis taper la commande "nodemon server" pour lancer le serveur.
 Une fois, ces commandes effectuées, se rendre à l'adresse http://localhost:4200/ pour naviguer dans l'application.
+
+Pour le "signup", un contrôle de l'email vérifiera son format. Le mot de passe devra faire entre 6 et 40 caractères maximum, contenir au moins 1 majuscule, 1 minuscule, 2 chiffres entiers, pas d'espace et être différent de "Passwrd12" et "Password123".
 
 # HotTakes
 
