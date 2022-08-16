@@ -1,3 +1,9 @@
+# Pour démarrer l'application
+
+À partir du terminal, il faut se positionner dans le dossier "frontend" puis taper la commande "npm run start" pour lancer l'application.
+Ensuite, il faudra de positionner dans le dossier "backend" puis taper la commande "nodemon server" pour lancer le serveur.
+Une fois, ces commandes effectuées, se rendre à l'adresse http://localhost:4200/ pour naviguer dans l'application.
+
 # HotTakes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.

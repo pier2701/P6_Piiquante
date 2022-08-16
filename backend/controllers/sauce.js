@@ -72,6 +72,7 @@ exports.modifySauce = (req, res, next) => {
       console.log("   => userId de la req = " + req.auth.userId);
       if (sauce.userId != req.auth.userId) {
         // si Id est != de l'id du token => erreur 403 "unauthorized request"
+        console.log("differents userId !!!");
         res.status(403).json({ message: "unauthorized request" });
       } else {
         // méthode updateOne pour modifier avec 2 arguments =>
@@ -98,6 +99,7 @@ exports.deleteSauce = (req, res, next) => {
       if (sauce.userId != req.auth.userId) {
         // on compare le 'userId' avec celui du token
         // si la comparaison n'es pas bonne => error 403
+        console.log("differents userId !!!");
         res.status(403).json({ message: "unauthorized request" });
       } else {
         const filename = sauce.imageUrl.split("/images/")[1]; // on récupère le nom du fichier

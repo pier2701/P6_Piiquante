@@ -45,3 +45,12 @@ sauce =>
 "image": ""
 }
 image => "http://localhost:3000/images/Capture_dâ\u0080\u0099eÌ\u0081cran_2022-08-01_aÌ\u0080_07.21.28.png1659955032229.png",
+
+PUT : http://localhost:3000/api/sauces/62f9d65d4eb28ba66fe35d0e
+Body => raw => json
+{
+"userId": "62fb55959cfa8f42fc069af5",
+"name": "peuimporte",
+"manufacturer": "pasledroit",
+"description": "autreUser"
+}
