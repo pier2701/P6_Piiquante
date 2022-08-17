@@ -10,13 +10,16 @@ npm install
 npm install -g nodemon
 
 Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dossier "backend" puis taper :
+
 nodemon server
 Cette action lancera le serveur.
 
 Se rendre, à partir du terminal, dans le dossier "frontend", puis taper :
+
 npm install
 
 Depuis le terminal, toujours dans le dossier "frontend", taper la commande suivante :
+
 npm run start
 Cette action lancera l'application.
 
