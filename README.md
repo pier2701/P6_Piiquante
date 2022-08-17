@@ -7,6 +7,9 @@ Ensuite, ouvrir le projet à partir de l'éditeur de code ( ex: vscode ).
 À partir du terminal intégré, il faudra se rendre dans le dossier "backend" et taper la commande suivante pour pouvoir installer toutes les dépendances liées à l'application :
 
 `npm install`
+
+puis ensuite pour lancer le serveur :
+
 `npm install -g nodemon`
 
 Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dossier "backend" puis taper :
