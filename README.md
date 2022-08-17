@@ -8,13 +8,14 @@ Ensuite, ouvrir le projet à partir de l'éditeur de code ( ex: vscode ).
 
 `npm install`
 
-puis ensuite pour lancer le serveur :
+puis ensuite :
 
 `npm install -g nodemon`
 
 Après l'installation des modules, propres au fonctionnement de l'application, rester dans le dossier "backend" puis taper :
 
 `nodemon server`
+
 Cette action lancera le serveur.
 
 Se rendre, à partir du terminal, dans le dossier "frontend", puis taper :
