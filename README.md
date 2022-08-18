@@ -22,6 +22,10 @@ Se rendre, à partir du terminal, dans le dossier "frontend", puis taper :
 
 `npm install`
 
+puis mettre à jour angular avec la commande suivante :
+
+npm install --save @angular/cli
+
 Depuis le terminal, toujours dans le dossier "frontend", taper la commande suivante :
 
 `npm run start`
