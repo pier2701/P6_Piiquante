@@ -4,8 +4,6 @@ Il faudra `cloner` le "projet" sur son ordinateur dans un dossier reservé à l'
 
 Ensuite, ouvrir le projet à partir de l'éditeur de code ( ex: vscode ).
 
-Vous devrez relier la base de données MongoDB à l'aide vos identifiants, qui seront stockés dans une variable d'environnement. La marche à suivre se trouvera dans le fichier `.env.sample` à la racine du dossier `backend`.
-
 À partir du terminal intégré, il faudra se rendre dans le dossier "backend" et taper la commande suivante pour pouvoir installer toutes les dépendances liées à l'application :
 
 `npm install`
