@@ -13,9 +13,7 @@ const multer = require("../middleware/multer-config");
 // importation du "stuffControllers" créé le dossier "controllers"
 const sauceCtrl = require("../controllers/sauce");
 
-// on utilisera les mêmes routes que pour les requêtes, on remplacera "app" par "router"
-
-// le " / " du fichier "stuff" sera la route vers laquelle nous intercepterons les requêtes de type POST
+// le " / " du fichier "sauces" sera la route vers laquelle nous intercepterons les requêtes de type POST
 router.post("/", auth, multer, sauceCtrl.createSauce); // ajout de "auth" AVANT les actions de route
 // ajout de "multer" avant "auth"
 
