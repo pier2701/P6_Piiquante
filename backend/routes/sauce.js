@@ -10,7 +10,7 @@ const auth = require("../middleware/auth");
 // on importe la méthode "multer"
 const multer = require("../middleware/multer-config");
 
-// importation du "stuffControllers" créé le dossier "controllers"
+// importation du "sauceControllers" créé le dossier "controllers"
 const sauceCtrl = require("../controllers/sauce");
 
 // le " / " du fichier "sauces" sera la route vers laquelle nous intercepterons les requêtes de type POST
