@@ -23,11 +23,9 @@ exports.createSauce = (req, res, next) => {
   const sauce = new Sauce({
     ...sauceObject, // model d'objet sans les 2 éléments
     userId: req.auth.userId, // on extrait notre id du token de la méthode "auth"
-    imageUrl: `${req.protocol}://${req.get("host")}/images/${
-      req.file.filename
-    }`, // on reconstitue l'URL en faisant appelle aux "propriétés" de l'objet "req"
+    imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename
+      }`, // on reconstitue l'URL en faisant appelle aux "propriétés" de l'objet "req"
   });
-
   // on enregistre l'objet dans la base avec la méthode "save()"
   sauce
     .save()
@@ -56,11 +54,10 @@ exports.modifySauce = (req, res, next) => {
   // on passe par la condition ternaire pour voir s'il y a un champ "file" ( image ) dans notre "req"
   const sauceObject = req.file
     ? {
-        ...JSON.parse(req.body.sauce), // si oui, on parse pour récupèrer l'objet
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
-          req.file.filename
+      ...JSON.parse(req.body.sauce), // si oui, on parse pour récupèrer l'objet
+      imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename
         }`, // on reconstitue l'URL en faisant appelle aux "propriétés" de l'objet "req"
-      }
+    }
     : { ...req.body }; // sinon on récupère l'objet directemnt dans le corps de la requête
   // on supprime le userId pour eviter qu'un user créé un objet pour la réattribuer à quelqu'un d'autre
   delete sauceObject._userId;
